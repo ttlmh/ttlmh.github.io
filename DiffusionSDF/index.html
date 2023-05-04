@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NerfingMVS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css">
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="jquery/jqui/smoothness/jquery-ui.min.css">
+    <script src="jquery/jquery-3.4.1.min.js"></script>
+    <script src="jquery/jqui/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="album.css">
+    <script type="text/javascript" src="album.js"></script>
+
+</head>
+<body>
+<!-- Start Hero -->
+<section class="hero">
+    <div class="container">
+
+        <div class="hero-body">
+
+            <div class="level">
+                <h1 class="title level-item has-text-centered">Diffusion-SDF: Text-to-Shape via Voxelized Diffusion</h1>
+            </div>
+
+            <!-- Authors -->
+            <div class="columns" id="authors">
+                <div class="column has-text-centered">
+                </div>
+                <div class="column has-text-centered">
+                </div>
+                <div class="column has-text-centered">
+                    <a href="https://ttlmh.github.io/" target="_blank" style="font-size:20px"><nobr>Muheng Li<sup>1</sup></nobr></a>
+                </div>
+                <div class="column has-text-centered">
+                    <a href="https://duanyueqi.github.io/" target="_blank" style="font-size:20px"><nobr>Yueqi Duan<sup>2*</sup></nobr></a>
+                </div>
+                <div class="column has-text-centered">
+                    <a href="http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/" target="_blank" style="font-size:20px"><nobr>Jiwen Lu<sup>1</sup></nobr></a>
+                </div>
+                <div class="column has-text-centered">
+                    <a href="https://scholar.google.com/citations?user=6a79aPwAAAAJ&hl=en&authuser=1" target="_blank" style="font-size:20px"><nobr>Jie Zhou<sup>1</sup></nobr></a>
+                </div>
+                <div class="column has-text-centered">
+                </div>
+                <div class="column has-text-centered">
+                </div>
+            </div>
+            <!-- End of Authors -->
+
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="columns is-variable is-2">
+                        <div class="column has-text-centered">
+                        </div>
+                        <div class="column has-text-centered">
+                            <p style="font-size:17px"><sup>1</sup>Department of Automation,<br> Tsinghua University</p>
+                        </div>
+                        <div class="column has-text-centered">
+                            <p style="font-size:17px"><sup>2</sup>Department of Electronic Engineering,<br> Tsinghua University</p>
+                        </div>
+                        <div class="column has-text-centered">
+                            <p style="font-size:17px"><sup>*</sup>Corresponding</p>
+                        </div>
+                        <div class="column has-text-centered">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="columns">
+                <div class="column has-text-centered">
+                    <a href="http://cvpr2023.thecvf.com/" class="subtitle is-4">CVPR 2023</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Links -->
+        <div class="hero-foot">
+            <div class="columns is-centered">
+                <div class="column is-two-thirds">
+                    <div class="columns is-variable is-1">
+                        <div class="column has-text-centered">
+                        </div>
+                        <div class="column has-text-centered">
+                            <figure class="" >
+                                <a href="https://arxiv.org/abs/2212.03293"><img width="50" src="imgs/paper.png"  alt="paper"></a>
+                            </figure>
+                            <p><a href="https://arxiv.org/abs/2212.03293">Paper</a></p>
+                        </div>
+                        <div class="column has-text-centered">
+                            <figure class="" >
+                                <a href="https://github.com/ttlmh/Diffusion-SDF"><img width="60" src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cae3b53b42ebb3dd4175a82_68747470733a2f2f7777772e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f6f637469636f6e732f313032342f6d61726b2d6769746875622d3235362e706e67.png" alt="github"></a>
+                            </figure>
+                            <p><a href="https://github.com/ttlmh/Diffusion-SDF">Code</a></p>
+                        </div>
+                        <div class="column has-text-centered">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Links -->
+
+<!--        <div class="columns is-centered">-->
+<!--            <div id="pic-container" style="position: relative;height:250px;width:1000px;">-->
+<!--                <div id="btn-pre" style="z-index:1;position: absolute;top: 40%;left: 0%;background: none;border:none;"><img id="btnpreicon" width="30" src="imgs/pre.png" ></div>-->
+<!--                <div id="btn-next"style="z-index:1;position: absolute;top: 40%;right: 0%;background: none;border:none;"><img id="btnnexticon" width="30" src="imgs/next.png" ></div>-->
+<!--                <video id="v-content" name="0" style=" z-index:0;position:absolute;left:50%;transform:translateX(-50%);height:250px;width:1000px;" src="videos/scene0079_00.mp4" muted loop autoplay></video>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <script>-->
+<!--            btnpreicon.onmouseover = function(){-->
+<!--                this.style.cursor = 'pointer';-->
+<!--            }-->
+<!--            btnnexticon.onmouseover = function(){-->
+<!--                this.style.cursor = 'pointer';-->
+<!--            }-->
+<!--        </script>-->
+
+
+
+<!--        <section class="section" id="Overview-Video">-->
+<!--            <div class="container">-->
+<!--                <div class="column has-text-centered">-->
+<!--                    <h2 class="title is-3">Overview Video</h2>-->
+<!--                </div>-->
+<!--                </br>-->
+<!--                <div class="columns is-centered">-->
+<!--                    <iframe class="" width="800" height="500" src="https://www.youtube.com/embed/i-b5lPnYipA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+
+<!--        <section class="section" id="In-the-wild">-->
+<!--            <div class="container">-->
+<!--                <div class="column has-text-centered">-->
+<!--                    <h2 class="title is-3">In-the-wild Showcases</h2>-->
+<!--                </div>-->
+<!--                </br>-->
+
+<!--                <div class="columns is-centered">-->
+<!--                    <video  style="height:175px;width:800px;" src="videos/demo1.mp4" muted loop autoplay></video>-->
+<!--                </div>-->
+
+<!--                </br>-->
+
+<!--                <div class="columns is-centered">-->
+<!--                    <video  style="height:175px;width:800px;" src="videos/demo2.mp4" muted loop autoplay></video>-->
+<!--                </div>-->
+<!--                </br>-->
+<!--                <div class="columns is-centered">-->
+<!--                    <p>-->
+<!--                        We captured data with a hand-held phone at home.-->
+<!--                    </p>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+
+        <section class="section" id="Abstract">
+            <div class="container">
+                <div class="column has-text-centered">
+                    <h2 class="title is-3">Abstract</h2>
+                </div>
+                </br>
+                <div class="columns is-centered">
+                    <img width="800" src="imgs/pipeline.gif"  alt="paper">
+                </div>
+                <div class="columns is-centered">
+                    <div class="column is-two-thirds has-text-justified">
+                        <p>
+                            With the rising industrial attention to 3D virtual modeling technology, generating novel 3D content based on specified conditions (e.g. text) has become a hot issue. In this paper, we propose a new generative 3D modeling framework called Diffusion-SDF for the challenging task of text-to-shape synthesis. Previous approaches lack flexibility in both 3D data representation and shape generation, thereby failing to generate highly diversified 3D shapes conforming to the given text descriptions. To address this, we propose a SDF autoencoder together with the Voxelized Diffusion model to learn and generate representations for voxelized signed distance fields (SDFs) of 3D shapes. Specifically, we design a novel UinU-Net architecture that implants a local-focused inner network inside the standard U-Net architecture, which enables better reconstruction of patch-independent SDF representations. We extend our approach to further text-to-shape tasks including text-conditioned shape completion and manipulation. Experimental results show that Diffusion-SDF generates both higher quality and more diversified 3D shapes that conform well to given text descriptions when compared to previous approaches.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!--        <section class="section" id="Comparsion">-->
+<!--            <div class="container">-->
+<!--                <div class="column has-text-centered">-->
+<!--                    <h2 class="title is-3">Comparison with state-of-the-art methods</h2>-->
+<!--                </div>-->
+<!--                </br>-->
+<!--                <div class="columns is-centered">-->
+<!--                    <img width="900" src="imgs/comparison.png">-->
+<!--                </div>-->
+<!--                <div class="columns is-centered">-->
+<!--                    <div class="column is-two-thirds has-text-justified">-->
+<!--                        <p>-->
+<!--                            We conducted experiments on ScanNet dataset. This figure shows some qualitative results. While the original NeRF fails to predict reasonable geometry, our method generates visually appealing depth maps. Note that Atlas is trained on ScanNet with groundtruth depth supervision.-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+
+<!--        <section class="section" id="view-synthesis">-->
+<!--            <div class="container">-->
+<!--                <div class="column has-text-centered">-->
+<!--                    <h2 class="title is-3">View Synthesis Results</h2>-->
+<!--                </div>-->
+<!--                </br>-->
+<!--                <div class="columns is-centered">-->
+<!--                    <img width="600" src="imgs/view_synthesis.png">-->
+<!--                </div>-->
+<!--                <div class="columns is-centered">-->
+<!--                    <div class="column is-two-thirds has-text-justified">-->
+<!--                        <p>-->
+<!--                            Although view synthesis is not the main focus of our work, we observe that the proposed guided optimization scheme is beneficial to the view synthesis quality of NeRF. Moreover, without whole-space sampling procedure and coarse-to-fine strategy, our method speed up training procedure for 3 times.-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+
+
+        <section class="section" id="BibTeX">
+            <div class="container content">
+                <div class="columns is-centered">
+                    <div class="column is-two-thirds has-text-justified">
+                        <h2 class="titile">Citation</h2>
+                        <pre><code>@inproceedings{li2023diffusionsdf,
+  author    = {Li, Muheng and Duan, Yueqi and Zhou, Jie and Lu, Jiwen},
+  title     = {Diffusion-SDF: Text-to-Shape via Voxelized Diffusion},
+  booktitle = {CVPR},
+  year = {2023}
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <footer class="columns is-centered" style="margin-bottom:10px; font-size: medium;">
+            <hr>
+            Thanks to  &nbsp <a href="https://roxanneluo.github.io/" target="_blank">Luo Xuan</a> &nbsp for the &nbsp  <a href="https://roxanneluo.github.io/Consistent-Video-Depth-Estimation/" target="_blank">website template</a>.
+        </footer>
+</body>
+</html>
