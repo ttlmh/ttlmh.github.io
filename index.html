@@ -198,6 +198,25 @@
             filter: grayscale(0%);
         }
 
+        /* --- 新增的 Hero 社交图标样式 --- */
+        .hero-social {
+            display: flex;
+            gap: 25px; /* 图标之间的间距 */
+            margin-top: 35px; /* 距离上方按钮的距离 */
+            align-items: center;
+        }
+
+        .hero-social a {
+            font-size: 1.6rem; /* 图标大小 */
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+
+        .hero-social a:hover {
+            color: var(--accent-cyan); /* 悬停变为青色 */
+            transform: translateY(-3px); /* 悬停轻微上浮 */
+        }
+
         /* --- 5. TECH STACK (Skills Matrix) --- */
         .tech-stack {
             display: flex;
@@ -502,6 +521,10 @@
                 justify-content: center;
             }
 
+            .hero-social {
+                justify-content: center; 
+            }
+
             .hero-image-wrapper {
                 max-width: 300px;
                 margin: 0 auto;
@@ -557,6 +580,12 @@
                     <a href="https://scholar.google.com/citations?user=U3J4L6IAAAAJ&hl=en" target="_blank" class="btn btn-secondary">
                         <i class="fa-solid fa-graduation-cap" style="margin-right: 8px;"></i> Google Scholar
                     </a>
+                </div>
+                <div class="hero-social">
+                    <a href="mailto:muheng.li@psi.ch" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://github.com/ttlmh" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://scholar.google.com/citations?user=U3J4L6IAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+                    <a href="https://www.linkedin.com/in/muheng-li-ba4094287/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
             </div>
             <div class="hero-image-wrapper">
