@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="3D Virtual Patient Survey - Distinguishing AI-generated from Real Patient Images using 3DMMGEN-RF">
+    <meta name="keywords" content="3D patient generation, medical imaging, AI, synthetic patient, survey">
+    <title>3D Virtual Patient Survey | 3DMMGEN-RF</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent-cyan: #00e5ff;
+            --accent-teal: #14b8a6;
+            --accent-purple: #a78bfa;
+            --accent-glow: rgba(0, 229, 255, 0.15);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --font-main: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Hero Section */
+        section {
+            padding: 80px 0;
+        }
+
+        #hero {
+            padding-top: 120px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .highlight {
+            color: var(--accent-cyan);
+        }
+
+        .highlight-purple {
+            color: var(--accent-purple);
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-block;
+            background: rgba(167, 139, 250, 0.1);
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            padding: 12px 24px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-purple);
+        }
+
+        .status-badge i {
+            margin-right: 8px;
+        }
+
+        /* CTA Buttons */
+        .button-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-cyan));
+            color: #0f172a;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--accent-glow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        /* Coming Soon Message */
+        .coming-soon {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 60px 40px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .coming-soon-icon {
+            font-size: 3rem;
+            color: var(--accent-purple);
+            margin-bottom: 20px;
+        }
+
+        .coming-soon h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .coming-soon p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        /* Features */
+        #features {
+            border-top: 1px solid var(--border-color);
+            background: rgba(30, 41, 59, 0.3);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-teal);
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 50px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .social-links a {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-cyan);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .coming-soon {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="#" class="logo">3DMMGEN Survey</a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="hero">
+            <div class="status-badge">
+                <i class="fas fa-spinner fa-spin"></i>
+                Currently in Development
+            </div>
+
+            <h1>
+                3D Virtual Patient <span class="highlight">Authenticity</span><br>
+                Survey Study
+            </h1>
+
+            <p class="subtitle">
+                Help us evaluate the visual authenticity of synthetic patient images generated using 
+                <span class="highlight-purple">3DMMGEN-RF</span> compared to real clinical data.
+            </p>
+
+            <div class="button-group">
+                <button class="btn btn-primary" disabled>
+                    <i class="fas fa-check-circle"></i>
+                    Survey Coming Soon
+                </button>
+                <a href="#features" class="btn btn-secondary">
+                    <i class="fas fa-arrow-down"></i>
+                    Learn More
+                </a>
+            </div>
+
+            <div class="coming-soon">
+                <div class="coming-soon-icon">
+                    <i class="fas fa-hourglass-half"></i>
+                </div>
+                <h2>Coming Soon</h2>
+                <p>
+                    We're preparing an interactive survey platform to collect expert and general assessments 
+                    of synthetically generated vs. real patient imagery. Stay tuned!
+                </p>
+                <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--accent-teal);">
+                    <i class="fas fa-envelope"></i> 
+                    Subscribe for updates or contact us to participate
+                </p>
+            </div>
+        </section>
+
+        <section id="features">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2 style="font-size: 2rem; margin-bottom: 15px;">Survey Features</h2>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                    Our comprehensive platform will enable participants to evaluate and distinguish between synthetic and real patient imagery.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3>Visual Comparison</h3>
+                    <p>
+                        Side-by-side comparison of synthetic and real patient images with detailed visual metrics.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI-Generated Detection</h3>
+                    <p>
+                        Assess your ability to distinguish AI-generated virtual patients from real clinical data.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Detailed Analysis</h3>
+                    <p>
+                        Receive comprehensive feedback and statistics on survey completion and accuracy metrics.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Privacy Secured</h3>
+                    <p>
+                        All responses are anonymized and handled in compliance with data protection standards.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Research Quality</h3>
+                    <p>
+                        Part of peer-reviewed research validating synthetic patient generation methods.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community-Driven</h3>
+                    <p>
+                        Open to medical professionals, students, and interested participants worldwide.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" style="border-top: 1px solid var(--border-color); text-align: center;">
+            <h2 style="font-size: 2rem; margin-bottom: 20px;">About This Research</h2>
+            <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto; line-height: 1.8;">
+                This survey is part of research into generative models for medical imaging, specifically evaluating 
+                the realism and clinical applicability of 3D virtual patient images created using the 3DMMGEN-RF model. 
+                Your participation helps advance the understanding of synthetic medical data quality and authenticity.
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/ttlmh/3dmmgen-rf" target="_blank" title="GitHub Repository">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:muheng.li@psi.ch" title="Contact via Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://scholar.google.com/citations?user=U3J4L6IAAAAJ&hl=en" target="_blank" title="Google Scholar">
+                    <i class="fas fa-graduation-cap"></i>
+                </a>
+            </div>
+            <p>
+                3DMMGEN-RF Survey Platform | Developed at PSI & ETH Zurich<br>
+                <span style="font-size: 0.85rem;">© 2026 Muheng Li. All rights reserved.</span>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
