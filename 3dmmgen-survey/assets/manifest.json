@@ -1,0 +1,81 @@
+{
+ "dim": 128,
+ "modalities": [
+  "CT",
+  "T1",
+  "T2",
+  "PET"
+ ],
+ "cases": [
+  {
+   "id": 0,
+   "file": "case_00.bin.gz",
+   "label": "Phantom #01",
+   "src": "sample_0000",
+   "bytes": 3156270
+  },
+  {
+   "id": 1,
+   "file": "case_01.bin.gz",
+   "label": "Phantom #02",
+   "src": "sample_0006",
+   "bytes": 4033586
+  },
+  {
+   "id": 2,
+   "file": "case_02.bin.gz",
+   "label": "Phantom #03",
+   "src": "sample_0009",
+   "bytes": 3164322
+  },
+  {
+   "id": 3,
+   "file": "case_03.bin.gz",
+   "label": "Phantom #04",
+   "src": "sample_0013",
+   "bytes": 3320600
+  },
+  {
+   "id": 4,
+   "file": "case_04.bin.gz",
+   "label": "Phantom #05",
+   "src": "sample_0016",
+   "bytes": 3655294
+  },
+  {
+   "id": 5,
+   "file": "case_05.bin.gz",
+   "label": "Phantom #06",
+   "src": "sample_0021",
+   "bytes": 3048898
+  },
+  {
+   "id": 6,
+   "file": "case_06.bin.gz",
+   "label": "Phantom #07",
+   "src": "sample_0024",
+   "bytes": 2876424
+  },
+  {
+   "id": 7,
+   "file": "case_07.bin.gz",
+   "label": "Phantom #08",
+   "src": "sample_0029",
+   "bytes": 3097008
+  },
+  {
+   "id": 8,
+   "file": "case_08.bin.gz",
+   "label": "Phantom #09",
+   "src": "sample_0033",
+   "bytes": 3191705
+  },
+  {
+   "id": 9,
+   "file": "case_09.bin.gz",
+   "label": "Phantom #10",
+   "src": "sample_0042",
+   "bytes": 3307766
+  }
+ ]
+}

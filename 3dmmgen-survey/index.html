@@ -1,99 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="3DMMGEN-RF Virtual Patient Survey - Coming Soon">
-    <title>3DMMGEN Survey</title>
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-            background: #ffffff;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            text-align: center;
-            padding: 40px 20px;
-            max-width: 600px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-
-        p {
-            font-size: 1.1rem;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .coming-soon-text {
-            font-size: 1.3rem;
-            color: #999;
-            font-weight: 500;
-            margin-top: 40px;
-        }
-
-        .footer {
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid #eee;
-            font-size: 0.9rem;
-            color: #999;
-        }
-
-        a {
-            color: #333;
-            text-decoration: none;
-            border-bottom: 1px solid #333;
-            transition: opacity 0.3s;
-        }
-
-        a:hover {
-            opacity: 0.6;
-        }
-
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            p {
-                font-size: 1rem;
-            }
-        }
-    </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Quad-modal Digital Patient Phantoms · Latent Rectified Flow</title>
+<meta name="description" content="A generative engine creating co-registered quad-modal (CT / T1w / T2w MRI / FDG-PET) 3D head-and-neck phantoms via latent rectified flow, for virtual clinical trials in radiation oncology." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>3DMMGEN Survey</h1>
-        <p>Distinguishing synthetic and real patient imagery</p>
-        
-        <div class="coming-soon-text">
-            Coming Soon
-        </div>
 
-        <div class="footer">
-            <p>
-                <a href="https://github.com/ttlmh/3dmmgen-rf" target="_blank">GitHub</a>
-            </p>
-        </div>
+<header class="hero">
+  <div class="wrap">
+    <p class="venue">Generative AI · Digital Phantoms · Virtual Clinical Trials</p>
+    <h1>Toward a Large Cohort Creator for Virtual Trials</h1>
+    <h2 class="subtitle">Quad-modal Digital Patient Phantom Generation via Latent Rectified Flow</h2>
+
+    <ul class="authors">
+      <li><span>Muheng Li</span><sup>1,2</sup></li>
+      <li><span>Jintao Ren</span><sup>3,4</sup></li>
+      <li><span>Antony J. Lomax</span><sup>1,2</sup></li>
+      <li><span>Stine Sofia Korreman</span><sup>3,4</sup></li>
+      <li><span>Ye Zhang</span><sup>1,&#42;</sup></li>
+    </ul>
+    <ul class="affil">
+      <li><sup>1</sup>Center for Proton Therapy, Paul Scherrer Institute</li>
+      <li><sup>2</sup>Department of Physics, ETH Zurich</li>
+      <li><sup>3</sup>Danish Centre for Particle Therapy, Aarhus University Hospital</li>
+      <li><sup>4</sup>Department of Clinical Medicine, Aarhus University</li>
+    </ul>
+
+    <nav class="links">
+      <a class="btn" href="#" aria-disabled="false"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>Paper</a>
+      <a class="btn" href="#"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6A4.6 4.6 0 0 0 19 4.8 4.3 4.3 0 0 0 18.9 1S17.7.6 15 2.5a13 13 0 0 0-7 0C5.3.6 4.1 1 4.1 1A4.3 4.3 0 0 0 4 4.8 4.6 4.6 0 0 0 3 8c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V22"/></svg>Code</a>
+      <a class="btn" href="#"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H5.2L4 17.2z"/></svg>arXiv</a>
+      <span class="btn ghost" title="Reader study launching soon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Reader study · soon</span>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="band tldr">
+    <div class="wrap narrow">
+      <p>We learn the joint distribution of <strong>co-registered CT, T1w&nbsp;MRI, T2w&nbsp;MRI and <sup>18</sup>F-FDG&nbsp;PET</strong> from 609 head-and-neck cancer patients, and generate brand-new <strong>quad-modal 3D phantoms</strong> in a handful of deterministic steps. The cohort below is sampled from noise &mdash; no patient appears in it.</p>
+      <div class="stats">
+        <div><b>4</b><span>modalities, voxel-aligned</span></div>
+        <div><b>8</b><span>step deterministic sampling</span></div>
+        <div><b>1&nbsp;mm</b><span>isotropic 3D volumes</span></div>
+      </div>
     </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h3 class="section-title">Method</h3>
+      <p class="section-lead">A medical VAE compresses each four-modality study into a 16-channel latent; a 3D U-Net trained as a <em>latent rectified flow</em> transports Gaussian noise to a co-registered quad-modal phantom along a near-straight path.</p>
+      <figure class="pipeline">
+        <img src="assets/img/pipeline.png" alt="Method pipeline: medical VAE encoding, latent rectified flow sampling, and VAE decoding into a synthetic quad-modal phantom." loading="lazy" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="band viewer-band">
+    <div class="wrap">
+      <h3 class="section-title">Explore the generated cohort</h3>
+      <p class="section-lead">Ten synthetic patients, each a single voxel-aligned volume across all four modalities. Scroll the slices, drag on any panel to move the crosshair, and toggle modalities to fuse them &mdash; just like a tri-planar reading station.</p>
+
+      <div class="viewer" id="viewer">
+        <aside class="cases" id="caseList" aria-label="Choose a phantom"></aside>
+
+        <div class="stage">
+          <div class="panes">
+            <div class="view" data-view="axial">
+              <span class="tag">Axial</span>
+              <div class="canvas-stack"><canvas class="img"></canvas><canvas class="cross"></canvas></div>
+              <input type="range" aria-label="Axial slice" />
+            </div>
+            <div class="view" data-view="coronal">
+              <span class="tag">Coronal</span>
+              <div class="canvas-stack"><canvas class="img"></canvas><canvas class="cross"></canvas></div>
+              <input type="range" aria-label="Coronal slice" />
+            </div>
+            <div class="view" data-view="sagittal">
+              <span class="tag">Sagittal</span>
+              <div class="canvas-stack"><canvas class="img"></canvas><canvas class="cross"></canvas></div>
+              <input type="range" aria-label="Sagittal slice" />
+            </div>
+          </div>
+
+          <div class="controls">
+            <div class="mods" id="mods"></div>
+            <div class="extra">
+              <label class="mini">Brightness
+                <input type="range" id="brightness" min="0.5" max="2" step="0.05" value="1" />
+              </label>
+              <label class="mini check">
+                <input type="checkbox" id="crosshair" checked /> Crosshair
+              </label>
+            </div>
+          </div>
+          <div class="loading" id="loading" hidden>Loading phantom&hellip;</div>
+        </div>
+      </div>
+      <p class="hint">Tip: enable <b>CT</b> + <b>FDG&nbsp;PET</b> for a fusion view, or stack all four to inspect cross-modal alignment.</p>
+    </div>
+  </section>
+
+  <section class="band survey">
+    <div class="wrap narrow center">
+      <h3 class="section-title">Can you tell real from synthetic?</h3>
+      <p class="section-lead">A public online reader study, in which clinicians and the community are invited to discriminate real patient scans from our generated phantoms, is currently being prepared.</p>
+      <span class="pill">Public survey &mdash; coming soon</span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap narrow">
+    <p class="cite-title">Citation</p>
+    <pre class="cite">@article{li2026quadmodal,
+  title   = {Toward a Large Cohort Creator for Virtual Trials:
+             Quad-modal Digital Patient Phantom Generation via Latent Rectified Flow},
+  author  = {Li, Muheng and Ren, Jintao and Lomax, Antony J. and
+             Korreman, Stine Sofia and Zhang, Ye},
+  year    = {2026}
+}</pre>
+    <p class="foot-note">Paul Scherrer Institute &middot; ETH Zurich &middot; Aarhus University. Phantoms shown are fully synthetic and contain no patient data.</p>
+  </div>
+</footer>
+
+<script src="js/viewer.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
