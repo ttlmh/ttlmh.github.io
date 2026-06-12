@@ -13,6 +13,7 @@
   // --- manifest ---
   const manifest = await fetch("assets/manifest.json").then((r) => r.json());
   viewer.D = manifest.dim;
+  viewer.init();
 
   // --- case selector ---
   const caseList = document.getElementById("caseList");
@@ -25,17 +26,22 @@
     caseList.appendChild(b);
   });
 
-  // --- modality chips with opacity ---
+  // --- modality chips: toggle + colour/gray + opacity ---
   const modsBox = document.getElementById("mods");
   MOD_META.forEach((m) => {
+    const isGray = viewer.colorMode[m.id] === "gray";
     const chip = document.createElement("div");
     chip.className = "chip" + (viewer.active[m.id] ? " on" : "");
     chip.innerHTML = `
-      <button class="toggle" aria-pressed="${viewer.active[m.id]}">
-        <i style="background:${m.swatch}"></i>${m.label}
-      </button>
+      <div class="chip-row">
+        <button class="toggle" aria-pressed="${viewer.active[m.id]}">
+          <i style="background:${m.swatch}"></i>${m.label}
+        </button>
+        <button class="cmode${isGray ? " gray" : ""}" aria-pressed="${!isGray}" title="Switch colour / grayscale">${isGray ? "Gray" : "Colour"}</button>
+      </div>
       <input type="range" class="op" min="0" max="1" step="0.05" value="${viewer.opacity[m.id]}" aria-label="${m.label} opacity"/>`;
     const tBtn = chip.querySelector(".toggle");
+    const cBtn = chip.querySelector(".cmode");
     const op = chip.querySelector(".op");
     tBtn.addEventListener("click", () => {
       const on = !viewer.active[m.id];
@@ -43,8 +49,29 @@
       chip.classList.toggle("on", on);
       tBtn.setAttribute("aria-pressed", on);
     });
+    cBtn.addEventListener("click", () => {
+      const next = viewer.colorMode[m.id] === "gray" ? "color" : "gray";
+      viewer.setColorMode(m.id, next);
+      const gray = next === "gray";
+      cBtn.textContent = gray ? "Gray" : "Colour";
+      cBtn.classList.toggle("gray", gray);
+      cBtn.setAttribute("aria-pressed", !gray);
+    });
     op.addEventListener("input", () => viewer.setOpacity(m.id, parseFloat(op.value)));
     modsBox.appendChild(chip);
+  });
+
+  // --- layout toggle: fused overlay vs 2x2 grid ---
+  const layoutToggle = document.getElementById("layoutToggle");
+  layoutToggle.querySelectorAll(".seg-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      layoutToggle.querySelectorAll(".seg-btn").forEach((b) => {
+        const on = b === btn;
+        b.classList.toggle("on", on);
+        b.setAttribute("aria-selected", on);
+      });
+      viewer.setLayout(btn.dataset.layout);
+    });
   });
 
   document.getElementById("brightness").addEventListener("input", (e) =>

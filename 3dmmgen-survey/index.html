@@ -66,29 +66,21 @@
   <section class="band viewer-band">
     <div class="wrap">
       <h3 class="section-title">Explore the generated cohort</h3>
-      <p class="section-lead">Ten synthetic patients, each a single voxel-aligned volume across all four modalities. Scroll the slices, drag on any panel to move the crosshair, and toggle modalities to fuse them &mdash; just like a tri-planar reading station.</p>
+      <p class="section-lead">Ten synthetic patients, each a single voxel-aligned volume across all four modalities. Scroll the slices, drag on any panel to move the crosshair, switch each modality between colour and grayscale, and either fuse the modalities into one overlay or compare them side by side in a 2&times;2 grid &mdash; just like a tri-planar reading station.</p>
 
       <div class="viewer" id="viewer">
         <aside class="cases" id="caseList" aria-label="Choose a phantom"></aside>
 
         <div class="stage">
-          <div class="panes">
-            <div class="view" data-view="axial">
-              <span class="tag">Axial</span>
-              <div class="canvas-stack"><canvas class="img"></canvas><canvas class="cross"></canvas></div>
-              <input type="range" aria-label="Axial slice" />
+          <div class="layoutbar">
+            <div class="seg" id="layoutToggle" role="tablist" aria-label="Layout mode">
+              <button class="seg-btn on" data-layout="fuse" role="tab" aria-selected="true">Fused overlay</button>
+              <button class="seg-btn" data-layout="grid" role="tab" aria-selected="false">2&times;2 modalities</button>
             </div>
-            <div class="view" data-view="coronal">
-              <span class="tag">Coronal</span>
-              <div class="canvas-stack"><canvas class="img"></canvas><canvas class="cross"></canvas></div>
-              <input type="range" aria-label="Coronal slice" />
-            </div>
-            <div class="view" data-view="sagittal">
-              <span class="tag">Sagittal</span>
-              <div class="canvas-stack"><canvas class="img"></canvas><canvas class="cross"></canvas></div>
-              <input type="range" aria-label="Sagittal slice" />
-            </div>
+            <div class="planebar" hidden></div>
           </div>
+
+          <div class="panes"></div>
 
           <div class="controls">
             <div class="mods" id="mods"></div>
@@ -104,7 +96,7 @@
           <div class="loading" id="loading" hidden>Loading phantom&hellip;</div>
         </div>
       </div>
-      <p class="hint">Tip: enable <b>CT</b> + <b>FDG&nbsp;PET</b> for a fusion view, or stack all four to inspect cross-modal alignment.</p>
+      <p class="hint">Tip: in <b>Fused overlay</b>, enable <b>CT</b> + <b>FDG&nbsp;PET</b> and flip PET to <b>colour</b> for a hot-metal fusion; switch to <b>2&times;2 modalities</b> to read all four side by side at the same slice.</p>
     </div>
   </section>
 
